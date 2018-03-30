@@ -110,7 +110,7 @@ int main()
         p.arrivalTime=arrivalTime;p.pid=pid;p.burstTime=burstTime;p.remainingTime;p.burstTime;p.tickets=tickets;
         printf("%d %d %d  \n", p.pid, p.arrivalTime, p.burstTime);
         enqueue(p);
-    
+
 
 
     }
@@ -118,12 +118,14 @@ int main()
     double average_turnaround = 0;
     int nop = size(); //number of processes
     int ii = 0 ;
-    while (size() != 0 && ii<22)
+    struct Process p;
+    while (size() != 0 && ii<20)
     {
-        struct Process p = peek();
+         p = dequeue();
 
         if (p.remainingTime = p.burstTime)
             p.startTime = time;
+     printf("llll %d\n",p.remainingTime);
 
         if (p.remainingTime == 0)
         {
@@ -132,7 +134,6 @@ int main()
             int turnaround = p.endTime - p.arrivalTime;
             average_turnaround += (turnaround / nop);
             printf("Time %d : P %d Done Turn around : %d Waiting time : %d\n", time, p.pid, turnaround, p.startTime - p.arrivalTime);
-            dequeue();
         }
         else
         {
@@ -140,16 +141,17 @@ int main()
             {
                 time += p.remainingTime;
                 p.remainingTime = 0;
-                printf("enter\n");
+                dequeue();
+
             }
             else
             {
                 time += quantum;
-                p.remainingTime -= quantum;
-                printf("%d\n",p.remainingTime);
+                p.remainingTime = p.remainingTime-quantum;
+                printf("hhh %d\n",p.remainingTime);
                 dequeue();
                 enqueue(p);
-                
+
 
             }
             printf("Time %d : P %d Entering quantum\n", time, p.pid);
