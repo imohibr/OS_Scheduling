@@ -1,0 +1,22 @@
+Time 0 : P3 Entering quantum 
+Time 1000 : P4 Entering quantum 
+Time 2000 : P2 Entering quantum 
+Time 3000 : P3 Entering quantum 
+Time 4000 : P1 Entering quantum 
+Time 5000 : P3 Entering quantum 
+Time 6000 : P4 Entering quantum 
+Time 7000 : P2 Entering quantum 
+Time 8000 : P3 Entering quantum 
+Time 8500 : P1 Entering quantum 
+Time 9500 : P2 Entering quantum 
+Time 10500 : P1 Entering quantum 
+Time 11500 : P2 Entering quantum 
+Time 12500 : P2 Entering quantum 
+Time 13500 : P2 Entering quantum 
+Time 14500 : P2 Entering quantum 
+Time 15500 : P1 Entering quantum 
+Time 16500 : P1 Entering quantum 
+Time 17500 : P1 Entering quantum 
+
+Average Turnarround Time = 12263.750000 
+Average Waiting Time = 7750.000000 

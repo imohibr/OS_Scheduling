@@ -1,0 +1,27 @@
+Time 0 : P2 Entering quantum 
+Time 100 : P4 Entering quantum 
+Time 200 : P4 Entering quantum 
+Time 300 : P4 Entering quantum 
+Time 370 : P6 Entering quantum 
+Time 470 : P6 Entering quantum 
+Time 520 : P2 Entering quantum 
+Time 620 : P2 Entering quantum 
+Time 720 : P2 Entering quantum 
+Time 728 : P3 Entering quantum 
+Time 828 : P3 Entering quantum 
+Time 928 : P3 Entering quantum 
+Time 1028 : P3 Entering quantum 
+Time 1078 : P7 Entering quantum 
+Time 1177 : P1 Entering quantum 
+Time 1277 : P1 Entering quantum 
+Time 1377 : P1 Entering quantum 
+Time 1477 : P1 Entering quantum 
+Time 1577 : P1 Entering quantum 
+Time 1677 : P5 Entering quantum 
+Time 1777 : P5 Entering quantum 
+Time 1877 : P5 Entering quantum 
+Time 1977 : P5 Entering quantum 
+Time 2077 : P5 Entering quantum 
+
+Average Turnarround Time = 1097.428571 
+Average Waiting Time = 792.857143 

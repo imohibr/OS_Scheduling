@@ -1,0 +1,26 @@
+Time 0:	 P1 Entering quantum
+Time 1000:P2 Entering quantum
+Time 2000:P3 Entering quantum
+Time 3000:P4 Entering quantum
+Time 4000:P1 Entering quantum
+Time 5000:P2 Entering quantum
+Time 6000:P3 Entering quantum
+Time 7000:P4 Entering quantum
+Time 8000:P4 Done Turn around: 8000 Waiting time: 6000
+Time 8000: P1 Entering quantum
+Time 9000: P2 Entering quantum
+Time 10000:P3 Entering quantum
+Time 11000:P1 Entering quantum
+Time 12000:P2 Entering quantum
+Time 13000:P3 Entering quantum
+Time 13500: P3 Done Turn around: 13500 Waiting time: 10000
+Time 13500: P1 Entering quantum
+Time 14500: P2 Entering quantum
+Time 15500: P1 Entering quantum
+Time 16055: P1 Done Turn around: 16055 Waiting time: 10500
+Time 16055: P2 Entering quantum
+Time 17055: P2 Entering quantum
+Time 18055: P2 Done Turn around: 18055 Waiting time: 11055
+
+Average Waiting Time= 9388.750000
+Average Turnaround Time = 13902.500000
