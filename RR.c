@@ -2,89 +2,26 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#define BUFFER_SIZE 1024
-#define MAX 1024
-
-typedef struct Process
-{
-    int pid,
-        arrivalTime,
-        burstTime,
-        remainingTime,
-        startTime,
-        endTime,
-        tickets;
-};
-
-struct Process intArray[MAX];
-int front = 0;
-int rear = -1;
-int itemCount = 0;
-
-struct Process peek()
-{
-    return intArray[front];
-}
-
-bool isEmpty()
-{
-    return itemCount == 0;
-}
-
-bool isFull()
-{
-    return itemCount == MAX;
-}
-
-int size()
-{
-    return itemCount;
-}
-
-void enqueue(struct Process data)
-{
-
-    if (!isFull())
-    {
-
-        if (rear == MAX - 1)
-        {
-            rear = -1;
-        }
-
-        intArray[++rear] = data;
-        itemCount++;
-    }
-}
-
-struct Process dequeue()
-{
-    struct Process data = intArray[front++];
-
-    if (front == MAX)
-    {
-        front = 0;
-    }
-
-    itemCount--;
-    return data;
-}
-
-int main()
-{
-
+#define BUFFER_SIZE 1024 
+int main() 
+{ 
     char buffer[BUFFER_SIZE];
     char *record, *line;
     int i = 0, j = 0;
-    FILE *fstream = fopen("Input1.in", "r");
+    FILE *fstream = fopen("Input2.in", "r");
     if (fstream == NULL)
     {
         printf("\n file opening failed ");
         return -1;
     }
-    int quantum = atoi(fgets(buffer, sizeof(buffer), fstream));
+    int time_quantum = atoi(fgets(buffer, sizeof(buffer), fstream));
     int totalTickets = atoi(fgets(buffer, sizeof(buffer), fstream));
-    printf("%d\n%d\n",quantum,totalTickets);
+   // printf("%d\n%d\n",quantum,totalTickets);
+
+    int count,n,time,remain,flag=0; 
+  int wait_time=0,turnaround_time=0,at[50],bt[50],rt[50]; 
+ 
+  int idx = 0;
     while ((line = fgets(buffer, sizeof(buffer), fstream)) != NULL)
     {
         record = strtok(line, ",");
@@ -106,57 +43,62 @@ int main()
 
             record = strtok(NULL, ",");
         }
-        struct Process p;
-        p.arrivalTime=arrivalTime;p.pid=pid;p.burstTime=burstTime;p.remainingTime;p.burstTime;p.tickets=tickets;
-        printf("%d %d %d  \n", p.pid, p.arrivalTime, p.burstTime);
-        enqueue(p);
+
+    at[idx]=arrivalTime;
+    bt[idx]=burstTime;
+    rt[idx]=bt[idx];
+    idx++;
 
 
 
     }
-    int time = -1000;
-    double average_turnaround = 0;
-    int nop = size(); //number of processes
-    int ii = 0 ;
-    struct Process p;
-    while (size() != 0 && ii<20)
+    n=idx;
+    remain=n; 
+
+
+
+
+
+
+ 
+
+  printf("\n\nProcess\t|Turnaround Time|Waiting Time\n\n");
+  int prev = 0 ; 
+  for(time=0,count=0;remain!=0;) 
+  { 
+    if(rt[count]<=time_quantum && rt[count]>0) 
+    { 
+      prev= time;  
+      time+=rt[count]; 
+      rt[count]=0; 
+      flag=1; 
+    } 
+    else if(rt[count]>0) 
     {
-         p = dequeue();
+      printf("Time %d : P %d Entering quantum\n", time,count+1);
 
-        if (p.remainingTime = p.burstTime)
-            p.startTime = time;
-     printf("llll %d\n",p.remainingTime);
+      rt[count]-=time_quantum; 
+      time+=time_quantum; 
+    } 
+    if(rt[count]==0 && flag==1) 
+    { 
+      remain--; 
+           printf("Time %d : P %d Entering quantum\n", prev,count+1);
 
-        if (p.remainingTime == 0)
-        {
-            //sleep for sometime
-            p.endTime = time;
-            int turnaround = p.endTime - p.arrivalTime;
-            average_turnaround += (turnaround / nop);
-            printf("Time %d : P %d Done Turn around : %d Waiting time : %d\n", time, p.pid, turnaround, p.startTime - p.arrivalTime);
-        }
-        else
-        {
-            if (p.remainingTime <= quantum)
-            {
-                time += p.remainingTime;
-                p.remainingTime = 0;
-                dequeue();
-
-            }
-            else
-            {
-                time += quantum;
-                p.remainingTime = p.remainingTime-quantum;
-                printf("hhh %d\n",p.remainingTime);
-                dequeue();
-                enqueue(p);
-
-
-            }
-            printf("Time %d : P %d Entering quantum\n", time, p.pid);
-        }
-        ii++;
-    }
-    return 0;
+      printf("Time %d : P %d Done Turn around : %d Waiting time : %d\n",time,count+1,time-at[count],time-at[count]-bt[count]); 
+      wait_time+=time-at[count]-bt[count]; 
+      turnaround_time+=time-at[count]; 
+      flag=0; 
+    } 
+    if(count==n-1) 
+      count=0; 
+    else if(at[count+1]<=time) 
+      count++; 
+    else 
+      count=0; 
+  } 
+  printf("\nAverage Waiting Time= %f\n",wait_time*1.0/n); 
+  printf("Avg Turnaround Time = %f\n",turnaround_time*1.0/n); 
+  
+  return 0; 
 }
